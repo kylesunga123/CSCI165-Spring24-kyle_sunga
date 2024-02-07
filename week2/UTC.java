@@ -25,10 +25,10 @@ public class UTC{
 		//Used chat gpt for this section of the problem.
 		// get the command line argument, convert to an integer
 		int timeZoneOffset = Integer.parseInt(args[0]); 										// Parse the time zone offset from the command line argument
-		millis += timeZoneOffset * MIL_PER_HOUR;
+		Long millis1 = System.currentTimeMillis();
 		System.out.println("Current Local Time: " + getTimeString(millis));				        // Display the current local time
 		// Adjust the timestamp based on the time zone offset
-		System.out.println("Current GMT Time: " + getTimeString(System.currentTimeMillis()));					    // Display the current GMT time
+		System.out.println("Current GMT Time: " + getTimeString(millis1 - timeZoneOffset * MIL_PER_HOUR));					    // Display the current GMT time
 	}
 		private static String getTimeString(long millis) {									    // Helper method to format time in HH:mm:ss format
 		Calendar calendar = Calendar.getInstance();											    // Create a Calendar instance and set its time using the provided timestamp
