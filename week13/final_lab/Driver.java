@@ -70,21 +70,18 @@ public class Driver {
             if (shape instanceof Resizable) {
                 resizables.add((Resizable) shape);
             }
-
-            int resizePercentage = 10; // Define the percentage by which to resize
-
-            // Call the resize method
-            resize(resizables, resizePercentage);
-
-            Shape largestShape = findLargest(shapes);
-            double totalShapesArea = totalArea(shapes);
-
-            System.out.println("Largest Shape Area: " + largestShape.getArea());
-            System.out.println("Total Area of All Shapes: " + totalShapesArea);
         }
         // System.out.println("Before resize: " + resizable);
         // System.out.println("After resize: " + resizable);
-        
+        System.out.println("Shapes before resizing");
+
+        for(Resizable resizable: resizables){
+            System.out.println(resizable);
+        }
+
+        System.out.println();
+        System.out.println("Shapes after resizing:");
+        resize(resizables,50);
     }
 
     // task3
@@ -139,9 +136,8 @@ public class Driver {
      */
     public static void resize(ArrayList<Resizable> resizables, int percent) {
         for (Resizable resizable : resizables) {
-            System.out.println("Before resize: " + resizable);
             resizable.resize(percent);
-            System.out.println("After resize: " + resizable);
+            System.out.println(resizable);
         }
     }
 
